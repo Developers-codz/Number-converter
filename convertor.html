@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Convertor</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      #container {
+        width: 50%;
+        height: 40%;
+        border: 2px solid grey;
+        border-radius: 10px;
+        margin-left: 30%;
+        margin-top: 10%;
+        padding: 5px;
+        color: blue;
+        background-color: lightgrey;
+        box-shadow: 10px 10px 5px black;
+      }
+
+      #header {
+        width: inherit;
+        height: 20%;
+        text-align: center;
+        font-family: cursive;
+        font-size: 150%;
+      }
+      .textEle {
+        padding: 5px;
+        margin: 5px;
+        margin-left: 80px;
+        width: inherit;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header">Decimal/Binary/Hexadecimal/Octal</div>
+      <hr />
+      Binary <br />
+      <input
+        type="text"
+        id="input1"
+        class="textEle"
+        onkeyup="fromBinary(this.value)"
+        autofocus
+      />
+      <br />Decimal <br />
+      <input
+        type="text"
+        id="input2"
+        class="textEle"
+        onkeyup="fromDecimal(this.value)"
+      />
+      <br />Octal <br />
+      <input
+        type="text"
+        id="input3"
+        class="textEle"
+        onkeyup="fromOctal(this.value)"
+      />
+      <br />Hexadecimal <br />
+      <input
+        type="text"
+        id="input4"
+        class="textEle"
+        onkeyup="fromHexa(this.value)"
+      />
+    </div>
+    <script>
+      function fromBinary(num) {
+        var num = '0b' + num;
+
+        document.getElementById('input2').value = Number(num).toString(10);
+        document.getElementById('input3').value = Number(num).toString(8);
+        document.getElementById('input4').value = Number(num).toString(16);
+      }
+      function fromDecimal(num) {
+        document.getElementById('input1').value = Number(num).toString(2);
+        document.getElementById('input3').value = Number(num).toString(8);
+        document.getElementById('input4').value = Number(num).toString(16);
+      }
+      function fromOctal(num) {
+        var num = '0o' + num;
+
+        document.getElementById('input1').value = Number(num).toString(2);
+        document.getElementById('input2').value = Number(num).toString(10);
+        document.getElementById('input4').value = Number(num).toString(16);
+      }
+      function fromHexa(num) {
+        var num = '0x' + num;
+
+        document.getElementById('input1').value = Number(num).toString(2);
+        document.getElementById('input2').value = Number(num).toString(10);
+        document.getElementById('input3').value = Number(num).toString(8);
+      }
+    </script>
+  </body>
+</html>
